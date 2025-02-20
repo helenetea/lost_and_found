@@ -1,0 +1,11 @@
+<% content_for :title, "New objet" %>
+
+<h1>New objet</h1>
+
+<%= render "form", objet: @objet %>
+
+<br>
+
+<div>
+  <%= link_to "Back to objets", objets_path %>
+</div>

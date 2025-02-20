@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @objet %>
+<% if @objet.photo.present? %>
+  <img src="<%= @objet.photo %>" alt="Photo de <%= @objet.titre %>" class="img-fluid rounded">
+<% else %>
+  <p>Aucune photo disponible</p>
+<% end %>
+
+
+<div>
+  <%= link_to "Edit this objet", edit_objet_path(@objet) %> |
+  <%= link_to "Back to objets", objets_path %>
+
+  <%= button_to "Destroy this objet", @objet, method: :delete %>
+</div>

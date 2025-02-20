@@ -1,0 +1,12 @@
+<% content_for :title, "Editing objet" %>
+
+<h1>Editing objet</h1>
+
+<%= render "form", objet: @objet %>
+
+<br>
+
+<div>
+  <%= link_to "Show this objet", @objet %> |
+  <%= link_to "Back to objets", objets_path %>
+</div>

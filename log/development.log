@@ -1,0 +1,866 @@
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1272939231491674110) /*application='LostAndFound'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='LostAndFound'*/[0m
+Migrating to CreateObjets (20250220155514)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='LostAndFound'*/[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "objets" ("id" bigserial primary key, "titre" character varying, "description" text, "photo" character varying, "lieu" character varying, "date" date, "statut" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='LostAndFound'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250220155514') RETURNING "version" /*application='LostAndFound'*/[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT /*application='LostAndFound'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(1272939231491674110) /*application='LostAndFound'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-02-20 16:57:15 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/debian/.rbenv/versions/3.4.1/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/debian/.rbenv/versions/3.4.1/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 46ms (Views: 6.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.3ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 16:57:25 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (15.3ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/index.html.erb within layouts/application (Duration: 22.6ms | GC: 5.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 64.4ms | GC: 35.2ms)
+Completed 200 OK in 118ms (Views: 46.9ms | ActiveRecord: 19.7ms (1 query, 0 cached) | GC: 38.0ms)
+
+
+Started GET "/objets/new" for 127.0.0.1 at 2025-02-20 16:57:27 +0100
+Processing by ObjetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 69.8ms | GC: 6.7ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 70.8ms | GC: 6.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 71.5ms | GC: 6.7ms)
+Completed 200 OK in 115ms (Views: 72.0ms | ActiveRecord: 5.4ms (0 queries, 0 cached) | GC: 22.2ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:06:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | GC: 0.0ms)
+Completed 200 OK in 56ms (Views: 21.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:06:12 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 43.2ms | GC: 21.4ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 45.1ms | GC: 22.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.9ms | GC: 22.5ms)
+Completed 200 OK in 119ms (Views: 46.7ms | ActiveRecord: 13.5ms (0 queries, 0 cached) | GC: 53.5ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:06:14 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 7.7ms | GC: 0.7ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 8.1ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 0.7ms)
+Completed 200 OK in 22ms (Views: 10.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:06:15 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 7.2ms | GC: 0.7ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 7.6ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.7ms)
+Completed 200 OK in 22ms (Views: 8.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:06:17 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 9.9ms | GC: 3.6ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 10.3ms | GC: 3.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | GC: 3.6ms)
+Completed 200 OK in 23ms (Views: 11.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:09:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 19.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:09:05 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 40.3ms | GC: 22.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 41.1ms | GC: 22.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | GC: 23.7ms)
+Completed 500 Internal Server Error in 117ms (ActiveRecord: 11.0ms (0 queries, 0 cached) | GC: 55.3ms)
+
+
+  
+ActionView::Template::Error (No input found for date_picker)
+Caused by: RuntimeError (No input found for date_picker)
+
+Information for: ActionView::Template::Error (No input found for date_picker):
+     8:     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
+     9: 
+    10:     <%= f.input :lieu, label: "Lieu", placeholder: "Ex: Gare centrale" %>
+    11:     <%= f.input :date, as: :date_picker, label: "Date de perte/trouvaille" %>
+    12: 
+    13:     <%= f.input :statut, collection: ["perdu", "trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    14: 
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: RuntimeError (No input found for date_picker):
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-02-20 17:09:18 +0100
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:09:18 +0100
+Processing by PagesController#home as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 142ms (Views: 2.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 28.3ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:09:44 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 8.6ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 9.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 13.1ms | ActiveRecord: 3.3ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:09:44 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 13.6ms | GC: 7.2ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 14.0ms | GC: 7.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | GC: 7.2ms)
+Completed 200 OK in 27ms (Views: 15.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 7.2ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:09:46 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 11.3ms | GC: 3.3ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 11.9ms | GC: 3.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | GC: 3.3ms)
+Completed 200 OK in 26ms (Views: 13.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 3.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:10:26 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.2ms | GC: 0.0ms)
+Completed 200 OK in 52ms (Views: 20.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:10:30 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 35.0ms | GC: 19.2ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 37.3ms | GC: 20.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.6ms | GC: 20.5ms)
+Completed 500 Internal Server Error in 120ms (ActiveRecord: 12.4ms (0 queries, 0 cached) | GC: 56.8ms)
+
+
+  
+ActionView::Template::Error (No input found for date_picker)
+Caused by: RuntimeError (No input found for date_picker)
+
+Information for: ActionView::Template::Error (No input found for date_picker):
+     8:     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
+     9: 
+    10:     <%= f.input :lieu, label: "Lieu", placeholder: "Ex: Gare centrale" %>
+    11:     <%= f.input :date, as: :date_picker, label: "Date de perte/trouvaille" %>
+    12: 
+    13:     <%= f.input :statut, collection: ["perdu", "trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    14: 
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: RuntimeError (No input found for date_picker):
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:10:45 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:10:46 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 6.7ms | GC: 2.8ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 7.1ms | GC: 2.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 2.8ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.8ms)
+
+
+  
+ActionView::Template::Error (No input found for date_picker)
+Caused by: RuntimeError (No input found for date_picker)
+
+Information for: ActionView::Template::Error (No input found for date_picker):
+     8:     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
+     9: 
+    10:     <%= f.input :lieu, label: "Lieu", placeholder: "Ex: Gare centrale" %>
+    11:     <%= f.input :date, as: :date_picker, label: "Date de perte/trouvaille" %>
+    12: 
+    13:     <%= f.input :statut, collection: ["perdu", "trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    14: 
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: RuntimeError (No input found for date_picker):
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:10:47 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 4.1ms | GC: 0.6ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 4.6ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | GC: 0.6ms)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.2ms)
+
+
+  
+ActionView::Template::Error (No input found for date_picker)
+Caused by: RuntimeError (No input found for date_picker)
+
+Information for: ActionView::Template::Error (No input found for date_picker):
+     8:     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
+     9: 
+    10:     <%= f.input :lieu, label: "Lieu", placeholder: "Ex: Gare centrale" %>
+    11:     <%= f.input :date, as: :date_picker, label: "Date de perte/trouvaille" %>
+    12: 
+    13:     <%= f.input :statut, collection: ["perdu", "trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    14: 
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: RuntimeError (No input found for date_picker):
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:10:48 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 10.4ms | GC: 5.1ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 10.8ms | GC: 5.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | GC: 5.1ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 5.1ms)
+
+
+  
+ActionView::Template::Error (No input found for date_picker)
+Caused by: RuntimeError (No input found for date_picker)
+
+Information for: ActionView::Template::Error (No input found for date_picker):
+     8:     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
+     9: 
+    10:     <%= f.input :lieu, label: "Lieu", placeholder: "Ex: Gare centrale" %>
+    11:     <%= f.input :date, as: :date_picker, label: "Date de perte/trouvaille" %>
+    12: 
+    13:     <%= f.input :statut, collection: ["perdu", "trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    14: 
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: RuntimeError (No input found for date_picker):
+  
+app/views/objets/_form.html.erb:11
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:12:53 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.5ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 18.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:12:54 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 39.6ms | GC: 19.6ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 40.5ms | GC: 19.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 41.3ms | GC: 19.6ms)
+Completed 200 OK in 116ms (Views: 42.9ms | ActiveRecord: 13.0ms (0 queries, 0 cached) | GC: 49.5ms)
+
+
+Started POST "/objets" for 127.0.0.1 at 2025-02-20 17:14:12 +0100
+Processing by ObjetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "objet" => {"titre" => "\"DS", "description" => "Relou pls", "photo" => "https://upload.wikimedia.org/wikipedia/commons/0/0a/Nintendo-3DS-AquaOpen.png", "lieu" => "Bordeaux", "date(1i)" => "2025", "date(2i)" => "1", "date(3i)" => "4", "statut" => "perdu"}, "commit" => "Enregistrer"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:27:in 'block in ObjetsController#create'
+  [1m[36mObjet Create (2.7ms)[0m  [1m[32mINSERT INTO "objets" ("titre", "description", "photo", "lieu", "date", "statut", "created_at", "updated_at") VALUES ('"DS', 'Relou pls', 'https://upload.wikimedia.org/wikipedia/commons/0/0a/Nintendo-3DS-AquaOpen.png', 'Bordeaux', '2025-01-04', 'perdu', '2025-02-20 16:14:12.455496', '2025-02-20 16:14:12.455496') RETURNING "id" /*action='create',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:27:in 'block in ObjetsController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*action='create',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:27:in 'block in ObjetsController#create'
+Redirected to http://127.0.0.1:3000/objets/1
+Completed 302 Found in 21ms (ActiveRecord: 3.4ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/objets/1" for 127.0.0.1 at 2025-02-20 17:14:12 +0100
+Processing by ObjetsController#show as TURBO_STREAM
+  Parameters: {"id" => "1"}
+  [1m[36mObjet Load (3.4ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 1 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 3.8ms | ActiveRecord: 3.4ms (1 query, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:14:14 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.4ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 7.0ms | GC: 3.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 3.0ms)
+Completed 200 OK in 21ms (Views: 7.8ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 3.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:14:22 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 2.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:14:24 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 5.8ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 7.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:14:26 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.4ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 2.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 3.5ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new" for 127.0.0.1 at 2025-02-20 17:14:39 +0100
+Processing by ObjetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method '[]' for nil)
+Caused by: NoMethodError (undefined method '[]' for nil)
+
+Information for: ActionView::Template::Error (undefined method '[]' for nil):
+    1: <%= simple_form_for(@objet) do |f| %>
+    2:   <div class="card p-4 shadow-sm">
+    3:     <h2><%= @objet.new_record? ? "Déclarer un objet #{params[:objet][:statut]}" : "Modifier l'objet" %></h2>
+    4: 
+    5:     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
+    6:     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: NoMethodError (undefined method '[]' for nil):
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/objets/1" for 127.0.0.1 at 2025-02-20 17:14:40 +0100
+Processing by ObjetsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mObjet Load (0.6ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 1 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 200 OK in 108ms (Views: 2.7ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 15.3ms)
+
+
+Started DELETE "/objets/1" for 127.0.0.1 at 2025-02-20 17:14:41 +0100
+Processing by ObjetsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "id" => "1"}
+  [1m[36mObjet Load (0.5ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 1 LIMIT 1 /*action='destroy',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='destroy',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:52:in 'ObjetsController#destroy'
+  [1m[36mObjet Destroy (2.0ms)[0m  [1m[31mDELETE FROM "objets" WHERE "objets"."id" = 1 /*action='destroy',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:52:in 'ObjetsController#destroy'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT /*action='destroy',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:52:in 'ObjetsController#destroy'
+Redirected to http://127.0.0.1:3000/objets
+Completed 303 See Other in 22ms (ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:14:41 +0100
+Processing by ObjetsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.3ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/index.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 2.7ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:14:46 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 2.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:20:03 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.5ms)
+Completed 200 OK in 18ms (Views: 5.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:20:04 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 5.8ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 6.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 34ms (Views: 7.8ms | ActiveRecord: 3.5ms (0 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:20:09 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 5.3ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:20:11 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 7.2ms | GC: 1.4ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 7.6ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 1.4ms)
+Completed 200 OK in 28ms (Views: 9.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 8.3ms)
+
+
+Started POST "/objets" for 127.0.0.1 at 2025-02-20 17:20:30 +0100
+Processing by ObjetsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "objet" => {"titre" => "\"DS", "description" => "dcxwcwxc", "photo" => "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Nintendo-DS-Fat-Blue.png/1200px-Nintendo-DS-Fat-Blue.png", "lieu" => "bordeaux", "date(1i)" => "2025", "date(2i)" => "2", "date(3i)" => "20", "statut" => "perdu"}, "commit" => "Enregistrer"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:27:in 'block in ObjetsController#create'
+  [1m[36mObjet Create (2.2ms)[0m  [1m[32mINSERT INTO "objets" ("titre", "description", "photo", "lieu", "date", "statut", "created_at", "updated_at") VALUES ('"DS', 'dcxwcwxc', 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Nintendo-DS-Fat-Blue.png/1200px-Nintendo-DS-Fat-Blue.png', 'bordeaux', '2025-02-20', 'perdu', '2025-02-20 16:20:30.954394', '2025-02-20 16:20:30.954394') RETURNING "id" /*action='create',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:27:in 'block in ObjetsController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT /*action='create',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:27:in 'block in ObjetsController#create'
+Redirected to http://127.0.0.1:3000/objets/2
+Completed 302 Found in 19ms (ActiveRecord: 2.9ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/objets/2" for 127.0.0.1 at 2025-02-20 17:20:30 +0100
+Processing by ObjetsController#show as TURBO_STREAM
+  Parameters: {"id" => "2"}
+  [1m[36mObjet Load (0.5ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 2 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 2.8ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:20:40 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.3ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | GC: 0.3ms)
+Completed 200 OK in 15ms (Views: 3.6ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:20:41 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.4ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 4.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new" for 127.0.0.1 at 2025-02-20 17:20:44 +0100
+Processing by ObjetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method '[]' for nil)
+Caused by: NoMethodError (undefined method '[]' for nil)
+
+Information for: ActionView::Template::Error (undefined method '[]' for nil):
+    1: <%= simple_form_for(@objet) do |f| %>
+    2:   <div class="card p-4 shadow-sm">
+    3:     <h2><%= @objet.new_record? ? "Déclarer un objet #{params[:objet][:statut]}" : "Modifier l'objet" %></h2>
+    4: 
+    5:     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
+    6:     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: NoMethodError (undefined method '[]' for nil):
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/objets/2" for 127.0.0.1 at 2025-02-20 17:20:48 +0100
+Processing by ObjetsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mObjet Load (0.5ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 2 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 2.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:21:34 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.3ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 2.0ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 20.8ms | GC: 3.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | GC: 3.2ms)
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 5.6ms (1 query, 0 cached) | GC: 8.6ms)
+
+
+  
+ActionView::Template::Error (undefined method 'photo' for nil)
+Caused by: NoMethodError (undefined method 'photo' for nil)
+
+Information for: ActionView::Template::Error (undefined method 'photo' for nil):
+    12:   <p>
+    13:     <strong>Photo:</strong>
+    14:     <%= objet.photo %>*
+    15:     <% if @objet.photo.present? %>
+    16:   <img src="<%= @objet.photo %>" alt="Photo de <%= @objet.titre %>" class="img-fluid rounded">
+    17: <% else %>
+    18:   <p>Aucune photo disponible</p>
+  
+app/views/objets/_objet.html.erb:15
+app/views/objets/index.html.erb:9
+app/views/objets/index.html.erb:8
+
+Information for cause: NoMethodError (undefined method 'photo' for nil):
+  
+app/views/objets/_objet.html.erb:15
+app/views/objets/index.html.erb:9
+app/views/objets/index.html.erb:8
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:22:23 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.6ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 14.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 14.4ms | ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/2" for 127.0.0.1 at 2025-02-20 17:22:24 +0100
+Processing by ObjetsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mObjet Load (0.4ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 2 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 16ms (Views: 2.5ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new" for 127.0.0.1 at 2025-02-20 17:22:25 +0100
+Processing by ObjetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method '[]' for nil)
+Caused by: NoMethodError (undefined method '[]' for nil)
+
+Information for: ActionView::Template::Error (undefined method '[]' for nil):
+    1: <%= simple_form_for(@objet) do |f| %>
+    2:   <div class="card p-4 shadow-sm">
+    3:     <h2><%= @objet.new_record? ? "Déclarer un objet #{params[:objet][:statut]}" : "Modifier l'objet" %></h2>
+    4: 
+    5:     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
+    6:     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: NoMethodError (undefined method '[]' for nil):
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/objets/2" for 127.0.0.1 at 2025-02-20 17:22:26 +0100
+Processing by ObjetsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mObjet Load (0.4ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 2 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 87ms (Views: 2.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 17.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:24:26 +0100
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 2.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-20 17:50:32 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.5ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 14.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:50:34 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 34.6ms | GC: 16.1ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 36.7ms | GC: 17.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.4ms | GC: 17.3ms)
+Completed 200 OK in 117ms (Views: 39.3ms | ActiveRecord: 12.0ms (0 queries, 0 cached) | GC: 53.2ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-02-20 17:50:34 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:50:35 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 31.2ms | GC: 24.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 31.7ms | GC: 24.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | GC: 24.0ms)
+Completed 200 OK in 44ms (Views: 32.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 24.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 17:50:38 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 11.4ms | GC: 4.2ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 11.9ms | GC: 4.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | GC: 4.2ms)
+Completed 200 OK in 25ms (Views: 13.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 4.2ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 17:50:39 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 10.7ms | GC: 1.3ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 11.1ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | GC: 1.3ms)
+Completed 200 OK in 25ms (Views: 12.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/objets" for 127.0.0.1 at 2025-02-20 17:50:41 +0100
+Processing by ObjetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/index.html.erb within layouts/application
+  [1m[36mObjet Load (0.5ms)[0m  [1m[34mSELECT "objets".* FROM "objets" /*action='index',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/views/objets/index.html.erb:8
+  Rendered objets/_objet.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered objets/index.html.erb within layouts/application (Duration: 4.7ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | GC: 0.9ms)
+Completed 200 OK in 19ms (Views: 5.3ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/objets/new" for 127.0.0.1 at 2025-02-20 17:50:41 +0100
+Processing by ObjetsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.2ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method '[]' for nil)
+Caused by: NoMethodError (undefined method '[]' for nil)
+
+Information for: ActionView::Template::Error (undefined method '[]' for nil):
+    1: <%= simple_form_for(@objet) do |f| %>
+    2:   <div class="card p-4 shadow-sm">
+    3:     <h2><%= @objet.new_record? ? "Déclarer un objet #{params[:objet][:statut]}" : "Modifier l'objet" %></h2>
+    4: 
+    5:     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
+    6:     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+
+Information for cause: NoMethodError (undefined method '[]' for nil):
+  
+app/views/objets/_form.html.erb:3
+app/views/objets/_form.html.erb:1
+app/views/objets/new.html.erb:5
+Started GET "/objets/2" for 127.0.0.1 at 2025-02-20 17:50:43 +0100
+Processing by ObjetsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mObjet Load (0.6ms)[0m  [1m[34mSELECT "objets".* FROM "objets" WHERE "objets"."id" = 2 LIMIT 1 /*action='show',application='LostAndFound',controller='objets'*/[0m
+  ↳ app/controllers/objets_controller.rb:63:in 'ObjetsController#set_objet'
+  Rendering layout layouts/application.html.erb
+  Rendering objets/show.html.erb within layouts/application
+  Rendered objets/_objet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered objets/show.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 2.6ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 2.7ms)
+
+
