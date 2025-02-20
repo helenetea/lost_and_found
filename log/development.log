@@ -873,3 +873,136 @@ Completed 200 OK in 20ms (Views: 2.6ms | ActiveRecord: 0.6ms (1 query, 0 cached)
   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-02-20 22:13:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LostAndFound'*/[0m
+Processing by PagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.1ms | GC: 0.0ms)
+Completed 200 OK in 73ms (Views: 23.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/custom-0528e05e.css" for 127.0.0.1 at 2025-02-20 22:13:35 +0100
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 22:13:36 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 28.6ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 29.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.1ms | GC: 0.0ms)
+Completed 200 OK in 92ms (Views: 32.1ms | ActiveRecord: 11.3ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 22:13:37 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 8.2ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 8.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 10.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 22:13:39 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 7.9ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 10.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 22:13:40 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 8.1ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 8.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 10.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 22:13:43 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 8.3ms | GC: 0.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 8.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 10.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 22:13:43 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 21.5ms | GC: 13.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 22.1ms | GC: 13.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | GC: 15.9ms)
+Completed 200 OK in 46ms (Views: 28.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 17.7ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 22:13:43 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 36.2ms | GC: 26.0ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 36.7ms | GC: 26.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | GC: 26.0ms)
+Completed 200 OK in 64ms (Views: 38.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 33.1ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 22:13:44 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 9.3ms | GC: 1.7ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 9.9ms | GC: 1.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 1.7ms)
+Completed 200 OK in 30ms (Views: 11.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 22:13:44 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 10.0ms | GC: 2.1ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 10.5ms | GC: 2.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | GC: 2.1ms)
+Completed 200 OK in 31ms (Views: 12.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=perdu" for 127.0.0.1 at 2025-02-20 22:13:45 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "perdu"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 10.2ms | GC: 1.2ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 10.8ms | GC: 1.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | GC: 2.8ms)
+Completed 200 OK in 33ms (Views: 14.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 2.8ms)
+
+
+Started GET "/objets/new?objet%5Bstatut%5D=trouv%C3%A9" for 127.0.0.1 at 2025-02-20 22:13:46 +0100
+Processing by ObjetsController#new as HTML
+  Parameters: {"objet" => {"statut" => "trouvé"}}
+  Rendering layout layouts/application.html.erb
+  Rendering objets/new.html.erb within layouts/application
+  Rendered objets/_form.html.erb (Duration: 8.5ms | GC: 0.9ms)
+  Rendered objets/new.html.erb within layouts/application (Duration: 9.0ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | GC: 0.9ms)
+Completed 200 OK in 29ms (Views: 10.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+

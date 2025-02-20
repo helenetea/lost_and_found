@@ -1,9 +1,9 @@
-<div class="container text-center mt-5">
+<div class="container">
   <h1>Lost And Found</h1>
-  <p>Déclarez un objet perdu ou trouvé</p>
+  <p>Déclarez un objet perdu ou trouvé en un clic.</p>
 
-  <div class="d-flex justify-content-center gap-3 mt-4">
-    <%= link_to "Objet Perdu", new_objet_path(objet: { statut: "perdu" }), class: "btn btn-danger btn-lg" %>
-    <%= link_to "Objet Trouvé", new_objet_path(objet: { statut: "trouvé" }), class: "btn btn-success btn-lg" %>
+  <div class="buttons">
+    <%= link_to "Objet Perdu", new_objet_path(objet: { statut: "perdu" }), class: "btn red" %>
+    <%= link_to "Objet Trouvé", new_objet_path(objet: { statut: "trouvé" }), class: "btn green" %>
   </div>
 </div>
