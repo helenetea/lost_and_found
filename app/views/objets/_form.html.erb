@@ -2,7 +2,7 @@
   <div class="card p-4 shadow-sm">
     <h2>
       <% if @objet.new_record? %>
-        Déclarer un objet <%= params[:objet]&.dig(:statut) || "" %>
+        Déclarer un objet <%= params[:objet]&.dig(:statut) || "Non spécifié" %>
       <% else %>
         Modifier l'objet
       <% end %>
@@ -10,7 +10,6 @@
 
     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
-    
     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
 
     <%= f.input :lieu, label: "Ville", collection: [
@@ -19,12 +18,13 @@
       "Bruges", "Blanquefort", "Ambarès-et-Lagrave", "Artigues-près-Bordeaux", "Le Haillan",
       "Saint-André-de-Cubzac", "Libourne", "Pau", "Bayonne", "Anglet", "Biarritz", "Dax",
       "Mont-de-Marsan", "La Rochelle", "Rochefort", "Saintes", "Angoulême", "Poitiers",
-      "Niort", "Limoges", "Brive-la-Gaillarde", "Tulle", "Guéret"
+      "Niort", "Limoges", "Brive-la-Gaillarde", "Tulle", "Guéret" , "Périgueux"
     ], prompt: "Sélectionnez une ville" %>
 
     <%= f.input :date, as: :date, label: "Date de perte/trouvaille" %>
 
-    <%= f.input :statut, collection: ["Perdu", "Trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    <%= f.input :statut, collection: ["Perdu", "Trouvé"], selected: params[:objet] && params[:objet][:statut] || @objet.statut, include_blank: false, label: "Statut", input_html: { readonly: true } %>
+
 
     <div class="mt-3">
       <%= f.submit "Enregistrer", class: "btn btn-primary" %>

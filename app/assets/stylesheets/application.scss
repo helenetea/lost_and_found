@@ -1,2 +1,13 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
+
+.btn-purple {
+    background-color: #6f42c1;  /* Violet Bootstrap */
+    color: white;
+  }
+  
+  .btn-purple:hover {
+    background-color: #5a32a3;  /* Un violet plus foncé pour le survol */
+    color: white;
+  }
+  

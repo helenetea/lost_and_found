@@ -17,8 +17,8 @@
 
   <!-- Actions -->
   <div class="d-flex justify-content-between mt-4">
-    <%= link_to "Edit this objet", edit_objet_path(@objet), class: "btn btn-warning btn-sm" %>
-    <%= link_to "Back to objets", objets_path, class: "btn btn-secondary btn-sm" %>
-    <%= button_to "Destroy this objet", @objet, method: :delete, class: "btn btn-danger btn-sm" %>
+    <%= link_to "Modifier l'annonce", edit_objet_path(@objet), class: "btn btn-warning btn-sm" %>
+    <%= link_to "Retourner a l'accueil", root_path, class: "btn btn-secondary btn-sm" %>
+    <%= button_to "Supprimer l'annonce", @objet, method: :delete, class: "btn btn-danger btn-sm" %>
   </div>
 </div>

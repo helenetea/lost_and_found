@@ -1,10 +1,9 @@
 <div class="container">
-  <h1>Lost And Found</h1>
-  <p>Déclarez un objet perdu ou trouvé en un clic.</p>
+  <%= image_tag "logo.png", alt: "Lost And Found Logo", class: "img-fluid mb-3" %>
 
   <div class="buttons mb-4">
-    <%= link_to "Objet Perdu", new_objet_path(objet: { statut: "perdu" }), class: "btn btn-danger" %>
-    <%= link_to "Objet Trouvé", new_objet_path(objet: { statut: "trouvé" }), class: "btn btn-success" %>
+    <%= link_to "Objet Perdu", new_objet_path(objet: { statut: "Perdu" }), class: "btn btn-danger" %>
+    <%= link_to "Objet Trouvé", new_objet_path(objet: { statut: "Trouvé" }), class: "btn btn-success" %>
   </div>
 
   <div class="row">
@@ -18,7 +17,7 @@
               <p class="card-text"><strong>Ville:</strong> <%= objet.lieu %></p>
               <p class="card-text"><strong>Date:</strong> <%= objet.date.strftime("%d/%m/%Y") %></p>
               <span class="badge <%= objet.statut == "perdu" ? 'bg-danger' : 'bg-success' %>">
-                <%= objet.statut.capitalize %>
+                <%= objet.statut %>  <!-- Pas besoin de capitalize -->
               </span>
             </div>
           </div>
@@ -27,4 +26,3 @@
     <% end %>
   </div>
 </div>
-

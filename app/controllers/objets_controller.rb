@@ -1,5 +1,5 @@
 class ObjetsController < ApplicationController
-  before_action :set_objet, only: %i[ show edit update destroy ]
+  before_action :set_objet, only: %i[show edit update destroy]
 
   # GET /objets or /objets.json
   def index
@@ -25,7 +25,7 @@ class ObjetsController < ApplicationController
 
     respond_to do |format|
       if @objet.save
-        format.html { redirect_to @objet, notice: "Objet was successfully created." }
+        format.html { redirect_to @objet, notice: 'Objet was successfully created.' }
         format.json { render :show, status: :created, location: @objet }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class ObjetsController < ApplicationController
   def update
     respond_to do |format|
       if @objet.update(objet_params)
-        format.html { redirect_to @objet, notice: "Objet was successfully updated." }
+        format.html { redirect_to @objet, notice: 'Objet was successfully updated.' }
         format.json { render :show, status: :ok, location: @objet }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -49,22 +49,20 @@ class ObjetsController < ApplicationController
 
   # DELETE /objets/1 or /objets/1.json
   def destroy
-    @objet.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to objets_path, status: :see_other, notice: "Objet was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @objet = Objet.find(params[:id])
+    @objet.destroy
+    redirect_to root_path, notice: "L'annonce a été supprimée avec succès."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_objet
-      @objet = Objet.find(params.expect(:id))
-    end
 
-    # Only allow a list of trusted parameters through.
-    def objet_params
-      params.expect(objet: [ :titre, :description, :photo, :lieu, :date, :statut ])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_objet
+    @objet = Objet.find(params.expect(:id))
+  end
+
+  # Only allow a list of trusted parameters through.
+  def objet_params
+    params.expect(objet: %i[titre description photo lieu date statut])
+  end
 end
