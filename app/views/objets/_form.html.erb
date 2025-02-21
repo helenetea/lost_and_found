@@ -1,6 +1,13 @@
 <%= simple_form_for(@objet) do |f| %>
   <div class="card p-4 shadow-sm">
-    <h2><%= @objet.new_record? ? "Déclarer un objet #{params[:objet][:statut]}" : "Modifier l'objet" %></h2>
+    <h2>
+  <% if @objet.new_record? %>
+    Déclarer un objet <%= params[:objet]&.dig(:statut) || "" %>
+  <% else %>
+    Modifier l'objet
+  <% end %>
+</h2>
+
 
     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
