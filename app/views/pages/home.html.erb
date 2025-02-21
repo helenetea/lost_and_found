@@ -2,8 +2,29 @@
   <h1>Lost And Found</h1>
   <p>Déclarez un objet perdu ou trouvé en un clic.</p>
 
-  <div class="buttons">
-    <%= link_to "Objet Perdu", new_objet_path(objet: { statut: "perdu" }), class: "btn red" %>
-    <%= link_to "Objet Trouvé", new_objet_path(objet: { statut: "trouvé" }), class: "btn green" %>
+  <div class="buttons mb-4">
+    <%= link_to "Objet Perdu", new_objet_path(objet: { statut: "perdu" }), class: "btn btn-danger" %>
+    <%= link_to "Objet Trouvé", new_objet_path(objet: { statut: "trouvé" }), class: "btn btn-success" %>
+  </div>
+
+  <div class="row">
+    <% @objets.each do |objet| %>
+      <div class="col-md-3 mb-4">
+        <%= link_to objet_path(objet), class: "text-decoration-none" do %>
+          <div class="card">
+            <%= image_tag objet.photo.attached? ? objet.photo : "placeholder.jpg", class: "card-img-top", alt: objet.titre %>
+            <div class="card-body text-center">
+              <h5 class="card-title"><%= objet.titre %></h5>
+              <p class="card-text"><strong>Ville:</strong> <%= objet.lieu %></p>
+              <p class="card-text"><strong>Date:</strong> <%= objet.date.strftime("%d/%m/%Y") %></p>
+              <span class="badge <%= objet.statut == "perdu" ? 'bg-danger' : 'bg-success' %>">
+                <%= objet.statut.capitalize %>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
+

@@ -1,24 +1,30 @@
 <%= simple_form_for(@objet) do |f| %>
   <div class="card p-4 shadow-sm">
     <h2>
-  <% if @objet.new_record? %>
-    Déclarer un objet <%= params[:objet]&.dig(:statut) || "" %>
-  <% else %>
-    Modifier l'objet
-  <% end %>
-</h2>
-
+      <% if @objet.new_record? %>
+        Déclarer un objet <%= params[:objet]&.dig(:statut) || "" %>
+      <% else %>
+        Modifier l'objet
+      <% end %>
+    </h2>
 
     <%= f.input :titre, label: "Nom de l'objet", placeholder: "Ex: Clés de voiture" %>
     <%= f.input :description, as: :text, label: "Description", placeholder: "Détails supplémentaires sur l'objet" %>
     
     <%= f.input :photo, label: "Photo (URL pour l’instant)" %>
 
-    <%= f.input :lieu, label: "Lieu", placeholder: "Ex: Gare centrale" %>
+    <%= f.input :lieu, label: "Ville", collection: [
+      "Bordeaux", "Mérignac", "Pessac", "Talence", "Villenave-d'Ornon", "Bègles", "Eysines",
+      "Le Bouscat", "Gradignan", "Saint-Médard-en-Jalles", "Cenon", "Floirac", "Lormont",
+      "Bruges", "Blanquefort", "Ambarès-et-Lagrave", "Artigues-près-Bordeaux", "Le Haillan",
+      "Saint-André-de-Cubzac", "Libourne", "Pau", "Bayonne", "Anglet", "Biarritz", "Dax",
+      "Mont-de-Marsan", "La Rochelle", "Rochefort", "Saintes", "Angoulême", "Poitiers",
+      "Niort", "Limoges", "Brive-la-Gaillarde", "Tulle", "Guéret"
+    ], prompt: "Sélectionnez une ville" %>
+
     <%= f.input :date, as: :date, label: "Date de perte/trouvaille" %>
 
-
-    <%= f.input :statut, collection: ["perdu", "trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
+    <%= f.input :statut, collection: ["Perdu", "Trouvé"], selected: params.dig(:objet, :statut), include_blank: false, label: "Statut" %>
 
     <div class="mt-3">
       <%= f.submit "Enregistrer", class: "btn btn-primary" %>

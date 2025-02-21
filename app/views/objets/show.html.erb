@@ -1,16 +1,24 @@
-<p style="color: green"><%= notice %></p>
+<div class="container">
+  <h1><%= @objet.titre %></h1>
+  <p><strong>Ville:</strong> <%= @objet.lieu %></p>
+  <p><strong>Date:</strong> <%= @objet.date.strftime("%d/%m/%Y") %></p>
 
-<%= render @objet %>
-<% if @objet.photo.present? %>
-  <img src="<%= @objet.photo %>" alt="Photo de <%= @objet.titre %>" class="img-fluid rounded">
-<% else %>
-  <p>Aucune photo disponible</p>
-<% end %>
+  <!-- Affichage de la photo de l'objet -->
+  <div class="mb-4">
+    <%= image_tag @objet.photo.attached? ? @objet.photo : "placeholder.jpg", class: "img-fluid rounded", alt: @objet.titre %>
+  </div>
 
+  <p><strong>Description:</strong> <%= @objet.description %></p>
 
-<div>
-  <%= link_to "Edit this objet", edit_objet_path(@objet) %> |
-  <%= link_to "Back to objets", objets_path %>
+  <!-- Statut de l'objet -->
+  <span class="badge <%= @objet.statut == "perdu" ? 'bg-danger' : 'bg-success' %>">
+    <%= @objet.statut.capitalize %>
+  </span>
 
-  <%= button_to "Destroy this objet", @objet, method: :delete %>
+  <!-- Actions -->
+  <div class="d-flex justify-content-between mt-4">
+    <%= link_to "Edit this objet", edit_objet_path(@objet), class: "btn btn-warning btn-sm" %>
+    <%= link_to "Back to objets", objets_path, class: "btn btn-secondary btn-sm" %>
+    <%= button_to "Destroy this objet", @objet, method: :delete, class: "btn btn-danger btn-sm" %>
+  </div>
 </div>
